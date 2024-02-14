@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "netflix-gpt-d5785"
-  }
+    "production": "namaste-react-netflix",
+    "default": "namaste-react-netflix"
+  },
+  "targets": {},
+  "etags": {}
 }
