@@ -5,6 +5,8 @@ import './Header.scss'
 
 const Header = () => {
     const [isLoggedIn] = useState(true)
+    const [btnText] = useState<string>('Sign In')
+
 
     return (
         <div className="header">
@@ -12,7 +14,7 @@ const Header = () => {
                 <img src={netflixLog} alt="logo" />
             </div>
             <div className="header-actions">
-                {isLoggedIn && <Button />}
+                {isLoggedIn && <Button text={btnText} />}
             </div>
         </div>
     )
