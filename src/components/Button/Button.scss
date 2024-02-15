@@ -1,0 +1,17 @@
+@use '../../scss/colors';
+
+.button {
+    border: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: colors.$primary;
+    border-radius: 0.18rem;
+    color: colors.$white;
+    font-weight: 600;
+    padding: 0.4rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}

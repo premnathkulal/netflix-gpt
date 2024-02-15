@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 6rem;
+    // width: 100%;
+
+    .brand-icon {
+        img {
+            width: 8rem;
+        }
+    }
+
+    .header-actions {
+        margin-left: auto;
+        color: white;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+            padding: 0.8rem;
+            .brand-icon {
+                img {
+                    width: 7rem;
+                }
+            }
+        }
+}
