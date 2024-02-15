@@ -5,7 +5,7 @@ const Button = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate('/login')
+        navigate('/auth')
     }
 
     return (
