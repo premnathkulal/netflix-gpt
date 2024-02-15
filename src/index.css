@@ -1,3 +1,12 @@
-:root {
+body{
+  margin: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+img {
+  all: unset;
+}
+
+
+
+
