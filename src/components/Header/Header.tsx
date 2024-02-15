@@ -4,7 +4,7 @@ import Button from '../Button/Button'
 import './Header.scss'
 
 const Header = () => {
-    const [isLoggedIn] = useState(false)
+    const [isLoggedIn] = useState(true)
 
     return (
         <div className="header">
