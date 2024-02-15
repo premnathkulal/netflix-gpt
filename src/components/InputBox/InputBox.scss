@@ -1,0 +1,22 @@
+@use '../../scss/colors';
+
+.input-box {
+    .text-box {
+        padding: 1rem;
+        width: 100%;
+        border: 1px solid colors.$gray;
+        border-radius: 0.25rem;
+        background: colors.$light-bg;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: 2px solid colors.$white;
+            border: 2px solid colors.$gray;
+        }
+    }
+
+    .text-hint {
+        font-size: 1rem;
+        color: colors.$primary;
+    }
+}

@@ -8,7 +8,6 @@
     font-weight: 400;
     padding: 4rem 8rem;
     color: colors.$light-text;
-    position: absolute;
     bottom: 0;
     width: 100%;
     box-sizing: border-box;
@@ -28,5 +27,6 @@
 @media only screen and (max-width: 600px) {
     .footer {
         padding: 2rem 0.8rem;
+        border-top: 0.5px solid colors.$gray;
     }
 }
