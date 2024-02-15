@@ -21,6 +21,42 @@
             text-align: left;
             margin-bottom: 1rem;
         }
+
+        .form-body {
+            .auth-helper {
+                display: flex;
+                font-size: 0.8rem;
+                color: colors.$gray;
+                padding-top: 0.6rem;
+
+                .need-help {
+                    margin-left: auto;
+                }
+            }
+            .auth-options {
+                padding-top: 3rem;
+                color: colors.$text-gray;
+                
+                .sign-up-option {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    
+                    span {
+                        cursor: pointer;
+                        color: colors.$white;
+                    }
+                }
+                .auth-note {
+                    padding-top: 0.3rem;
+                    font-size: 13px;
+                    
+                    span {
+                        cursor: pointer;
+                        color: colors.$link-blue;
+                    }
+                }
+            }
+        }
     }
 }
 
