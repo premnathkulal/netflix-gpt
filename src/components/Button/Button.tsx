@@ -1,16 +1,27 @@
-import { useNavigate } from 'react-router-dom';
 import './Button.scss'
 
-const Button = () => {
-    const navigate = useNavigate();
+interface ButtonProps {
+    text: string
+    theme?: string
+    padding?: string
+    fontSize?: string
+    clickHandler: () => void
+}
+
+const Button = (props: ButtonProps) => {
+    const { text, padding, clickHandler } = props
 
     const handleClick = () => {
-        navigate('/auth')
+        clickHandler()
     }
 
     return (
-        <button className="button" onClick={handleClick}>
-            Sign In
+        <button
+            className="button"
+            onClick={handleClick}
+            style={{ padding: `${padding}rem` }}
+        >
+            {text}
         </button>
     )
 }

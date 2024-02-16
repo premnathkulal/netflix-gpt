@@ -8,8 +8,8 @@
     min-height: 100vh;
     
     .auth-form{
-        min-width: 28rem;
-        max-width: 28rem;
+        min-width: 22rem;
+        max-width: 22rem;
         background: colors.$transperant-black;
         padding: 3.75rem 4.25rem;
         height: 100%;
@@ -28,6 +28,7 @@
                 font-size: 0.8rem;
                 color: colors.$gray;
                 padding-top: 0.6rem;
+                cursor: pointer;
 
                 .need-help {
                     margin-left: auto;

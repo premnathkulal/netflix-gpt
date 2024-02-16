@@ -8,6 +8,7 @@
         border-radius: 0.25rem;
         background: colors.$light-bg;
         box-sizing: border-box;
+        color: colors.$white;
 
         &:focus {
             outline: 2px solid colors.$white;
@@ -18,5 +19,7 @@
     .text-hint {
         font-size: 1rem;
         color: colors.$primary;
+        line-height: 2rem;
+        min-height: 2rem;
     }
 }
