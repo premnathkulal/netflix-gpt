@@ -8,6 +8,7 @@
         border-radius: 0.25rem;
         background: colors.$light-bg;
         box-sizing: border-box;
+        color: colors.$white;
 
         &:focus {
             outline: 2px solid colors.$white;

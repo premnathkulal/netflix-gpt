@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import './Button.scss'
 
 interface ButtonProps {
@@ -6,14 +5,14 @@ interface ButtonProps {
     theme?: string
     padding?: string
     fontSize?: string
+    clickHandler: () => void
 }
 
 const Button = (props: ButtonProps) => {
-    const { text, padding } = props
-    const navigate = useNavigate();
+    const { text, padding, clickHandler } = props
 
     const handleClick = () => {
-        navigate('/auth')
+        clickHandler()
     }
 
     return (

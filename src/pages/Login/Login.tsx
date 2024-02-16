@@ -12,6 +12,10 @@ const Login = () => {
         !isLoginForm ? setBtnText('Sign In') : setBtnText('Sign Up')
     }
 
+    const authClickHandler = () => {
+        console.log("Hello");
+    }
+
     return (
         <div className="login-page">
             <div className="auth-form">
@@ -21,7 +25,7 @@ const Login = () => {
                         {!isLoginForm && <InputBox />}
                         <InputBox />
                         <InputBox />
-                        <Button text={btnText} padding="1" />
+                        <Button text={btnText} padding="1" clickHandler={authClickHandler} />
                     </form>
                     <div className="auth-helper">
                         <div className="remember-me">
