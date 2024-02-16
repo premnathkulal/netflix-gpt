@@ -1,7 +1,8 @@
+import './Login.scss';
 import { ElementRef, useRef, useState } from 'react';
 import Button from '../../components/Button/Button';
 import InputBox from '../../components/InputBox/InputBox';
-import './Login.scss';
+import { UserValues, validateForm } from '../../utils/form-validation';
 
 const Login = () => {
     const [isLoginForm, setIsLoginForm] = useState<boolean>(true)
@@ -9,6 +10,20 @@ const Login = () => {
     const name = useRef<ElementRef<typeof InputBox>>(null);
     const email = useRef<ElementRef<typeof InputBox>>(null);
     const password = useRef<ElementRef<typeof InputBox>>(null);
+    const [userInfo, setUserInfo] = useState({
+        name: {
+            value: '',
+            error: ''
+        },
+        email: {
+            value: '',
+            error: ''
+        },
+        password: {
+            value: '',
+            error: ''
+        }
+    })
 
     const toggleForm = () => {
         setIsLoginForm(!isLoginForm)
@@ -16,7 +31,14 @@ const Login = () => {
     }
 
     const authClickHandler = () => {
-        console.log("Hello", name.current?.value);
+        const userValues: UserValues = {
+            name: name.current?.value ?? '',
+            email: email.current?.value ?? '',
+            password: password.current?.value ?? '',
+        }
+        const validationData = validateForm(userValues)
+        setUserInfo(validationData)
+        // console.log('validationData', validationData)
     }
 
     return (
@@ -27,10 +49,10 @@ const Login = () => {
                     <form onSubmit={e => e.preventDefault()} className="form">
                         {
                             !isLoginForm &&
-                            <InputBox ref={name} />
+                            <InputBox ref={name} placeHolder="Name" error={userInfo.name.error} />
                         }
-                        <InputBox ref={email} />
-                        <InputBox ref={password} />
+                        <InputBox ref={email} type="email" placeHolder="Email" error={userInfo.email.error} />
+                        <InputBox ref={password} type="password" placeHolder="Password" error={userInfo.password.error} />
                         <Button text={btnText} padding="1" clickHandler={authClickHandler} />
                     </form>
                     <div className="auth-helper">

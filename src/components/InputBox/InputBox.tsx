@@ -4,22 +4,24 @@ import './InputBox.scss'
 export type RefType = HTMLInputElement
 
 interface InputBoxProps {
-    errorMessage?: string
+    type?: string
+    error?: string
+    placeHolder: string
 }
 
 const InputBox = forwardRef<RefType, InputBoxProps>((props, ref) => {
-    const { errorMessage } = props
+    const { error, type, placeHolder } = props
 
     return (
         <div className="input-box">
             <input
                 className="text-box"
-                type="text"
-                placeholder="Name"
+                type={type}
+                placeholder={placeHolder}
                 ref={ref}
             />
             <div className="text-hint">
-                {errorMessage}
+                {error}
             </div>
         </div>
     )
