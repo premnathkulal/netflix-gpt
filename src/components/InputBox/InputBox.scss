@@ -19,5 +19,7 @@
     .text-hint {
         font-size: 1rem;
         color: colors.$primary;
+        line-height: 2rem;
+        min-height: 2rem;
     }
 }

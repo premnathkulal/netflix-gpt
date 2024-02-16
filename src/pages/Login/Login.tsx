@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ElementRef, useRef, useState } from 'react';
 import Button from '../../components/Button/Button';
 import InputBox from '../../components/InputBox/InputBox';
 import './Login.scss';
@@ -6,6 +6,9 @@ import './Login.scss';
 const Login = () => {
     const [isLoginForm, setIsLoginForm] = useState<boolean>(true)
     const [btnText, setBtnText] = useState<string>('Sign In')
+    const name = useRef<ElementRef<typeof InputBox>>(null);
+    const email = useRef<ElementRef<typeof InputBox>>(null);
+    const password = useRef<ElementRef<typeof InputBox>>(null);
 
     const toggleForm = () => {
         setIsLoginForm(!isLoginForm)
@@ -13,7 +16,7 @@ const Login = () => {
     }
 
     const authClickHandler = () => {
-        console.log("Hello");
+        console.log("Hello", name.current?.value);
     }
 
     return (
@@ -22,9 +25,12 @@ const Login = () => {
                 <div className="form-header">{isLoginForm ? 'Sign In' : 'Sign Up'}</div>
                 <div className="form-body">
                     <form onSubmit={e => e.preventDefault()} className="form">
-                        {!isLoginForm && <InputBox />}
-                        <InputBox />
-                        <InputBox />
+                        {
+                            !isLoginForm &&
+                            <InputBox ref={name} />
+                        }
+                        <InputBox ref={email} />
+                        <InputBox ref={password} />
                         <Button text={btnText} padding="1" clickHandler={authClickHandler} />
                     </form>
                     <div className="auth-helper">
