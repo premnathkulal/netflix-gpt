@@ -56,6 +56,12 @@
                     }
                 }
             }
+            .auth-error {
+                font-size: 0.8rem;
+                color: colors.$primary;
+                // line-height: 2rem;
+                // min-height: 2rem;
+            }
         }
     }
 }
