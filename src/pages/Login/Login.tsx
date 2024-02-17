@@ -3,6 +3,8 @@ import { ElementRef, useRef, useState } from 'react';
 import Button from '../../components/Button/Button';
 import InputBox from '../../components/InputBox/InputBox';
 import { UserValues, validateForm } from '../../utils/form-validation';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../utils/firebase-config'
 
 const Login = () => {
     const [isLoginForm, setIsLoginForm] = useState<boolean>(true)
@@ -10,6 +12,7 @@ const Login = () => {
     const name = useRef<ElementRef<typeof InputBox>>(null);
     const email = useRef<ElementRef<typeof InputBox>>(null);
     const password = useRef<ElementRef<typeof InputBox>>(null);
+    const [authError, setAuthError] = useState<boolean>(false)
     const [userInfo, setUserInfo] = useState({
         name: {
             value: '',
@@ -36,9 +39,41 @@ const Login = () => {
             email: email.current?.value ?? '',
             password: password.current?.value ?? '',
         }
-        const validationData = validateForm(userValues)
-        setUserInfo(validationData)
-        // console.log('validationData', validationData)
+        const [validationData, isValid] = validateForm(userValues)
+        setUserInfo(prevValues => ({ ...prevValues, ...validationData }))
+
+        if (!isValid) return
+
+        if (!isLoginForm) {
+            signUp(userValues.email, userValues.password)
+        }
+        else {
+            signIn(userValues.email, userValues.password)
+        }
+    }
+
+    const signUp = (email: string, password: string) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                setAuthError(false)
+            })
+            .catch(() => {
+                setAuthError(true)
+            });
+    }
+
+    const signIn = (email: string, password: string) => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                setAuthError(false)
+            })
+            .catch(() => {
+                setAuthError(true)
+            });
     }
 
     return (
@@ -54,6 +89,7 @@ const Login = () => {
                         <InputBox ref={email} type="email" placeHolder="Email" error={userInfo.email.error} />
                         <InputBox ref={password} type="password" placeHolder="Password" error={userInfo.password.error} />
                         <Button text={btnText} padding="1" clickHandler={authClickHandler} />
+                        {authError && <span className="auth-error">Invalid Information</span>}
                     </form>
                     <div className="auth-helper">
                         <div className="remember-me">
