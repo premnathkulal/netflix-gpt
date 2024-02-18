@@ -3,10 +3,13 @@ import { ElementRef, useRef, useState } from 'react';
 import Button from '../../components/Button/Button';
 import InputBox from '../../components/InputBox/InputBox';
 import { UserValues, validateForm } from '../../utils/form-validation';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../../utils/firebase-config'
+import { useDispatch } from 'react-redux';
+import { addUser } from '../../store/slices/user-slice';
 
 const Login = () => {
+    const dispatch = useDispatch()
     const [isLoginForm, setIsLoginForm] = useState<boolean>(true)
     const [btnText, setBtnText] = useState<string>('Sign In')
     const name = useRef<ElementRef<typeof InputBox>>(null);
@@ -45,18 +48,27 @@ const Login = () => {
         if (!isValid) return
 
         if (!isLoginForm) {
-            signUp(userValues.email, userValues.password)
+            signUp(userValues.name, userValues.email, userValues.password)
         }
         else {
             signIn(userValues.email, userValues.password)
         }
     }
 
-    const signUp = (email: string, password: string) => {
+    const signUp = (name: string, email: string, password: string) => {
         createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user);
+            .then(() => {
+                const updatedUser = auth.currentUser;
+                if (updatedUser)
+                    updateProfile(updatedUser, {
+                        displayName: name, photoURL: "https://picsum.photos/200"
+                    }).then(() => {
+                        const { uid, email, displayName, photoURL } = updatedUser
+                        dispatch(addUser({ uid, email, displayName, photoURL }))
+                    }).catch(() => {
+                        setAuthError(true)
+                    });
+
                 setAuthError(false)
             })
             .catch(() => {
@@ -66,9 +78,7 @@ const Login = () => {
 
     const signIn = (email: string, password: string) => {
         signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user);
+            .then(() => {
                 setAuthError(false)
             })
             .catch(() => {
