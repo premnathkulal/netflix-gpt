@@ -4,15 +4,33 @@
     padding: 0.5rem 8rem;
     width: 100%;
     box-sizing: border-box;
+    background: linear-gradient(0deg, rgba(2, 0, 36, 0) -15%, rgba(0, 0, 0, 1) 100%);
 
     .brand-icon {
         img {
+            border-radius: 50%;
             width: 9rem;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
     }
 
     .header-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-left: auto;
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 1rem;
+        
+            img {
+                width: 1.8rem;
+                border-radius: 50%;
+            }
+        }
     }
 }
 
