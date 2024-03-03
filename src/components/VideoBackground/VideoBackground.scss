@@ -4,9 +4,26 @@
     color: colors.$white;
     width: 100%;
 
+    &::before {
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.8603816526610644) 21%,
+            rgba(0, 0, 0, 0.4374124649859944) 50%,
+            rgba(0, 0, 0, 0) 100%
+        );
+
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+    }
+
     .iframe {
         width: 100%;
         border: none;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 16 / 9;  
     }
 }

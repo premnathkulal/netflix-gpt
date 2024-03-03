@@ -3,6 +3,7 @@ import { RootState } from "../../store/app-store"
 import VideoBackground from "../VideoBackground/VideoBackground"
 import VideoTitle from "../VideoTitle/VideoTitle"
 import { Movies } from "../../store/slices/movies-slice"
+import './BrowseHeader.scss'
 
 const BrowseHeader = () => {
     const movies = useSelector<RootState>(store => store.movies.nowPlayingMovies) as Movies[]

@@ -10,18 +10,13 @@
     color: colors.$white;
     width: 40%;
     height: 100vh;
-    background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.8603816526610644) 21%,
-        rgba(0, 0, 0, 0.4374124649859944) 50%,
-        rgba(0, 0, 0, 0) 100%
-    );
+
     h1 {
         font-size: 2rem;
         font-weight: bold;
     }
     p {
-        font-size: 0.8rem;
+        font-size: 0.82rem;
         line-height: 1.2rem;
     }
 
@@ -32,14 +27,15 @@
     }
 }
 
+@media only screen and (max-width: 980px) {
+    p {
+        display: none;
+    }
+}
 @media only screen and (max-width: 600px) {
     .video-title {
         width: 80%;
         height: unset;
         padding: 2.8rem 0.8rem;
-    }
-
-    p {
-        display: none;
     }
 }
