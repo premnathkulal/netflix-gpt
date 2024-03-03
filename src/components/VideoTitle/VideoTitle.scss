@@ -1,9 +1,12 @@
 @use '../../scss/colors';
 
 .video-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: absolute;
     top: 0rem;
-    padding: 20% 8rem;
+    padding: 0 8rem;
     color: colors.$white;
     width: 40%;
     height: 100vh;
@@ -13,9 +16,6 @@
         rgba(0, 0, 0, 0.4374124649859944) 50%,
         rgba(0, 0, 0, 0) 100%
     );
-    // &:hover {
-    //     background: none;
-    // }
     h1 {
         font-size: 2rem;
         font-weight: bold;
@@ -34,7 +34,12 @@
 
 @media only screen and (max-width: 600px) {
     .video-title {
-        width: 60%;
-        padding: 8rem 0.8rem;
+        width: 80%;
+        height: unset;
+        padding: 2.8rem 0.8rem;
+    }
+
+    p {
+        display: none;
     }
 }

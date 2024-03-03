@@ -1,10 +1,25 @@
+import { Movies } from '../../store/slices/movies-slice';
+import MovieCard from '../MovieCard/MovieCard';
+import './MovieList.scss'
 
-const MovieList = () => {
-    return (
-        <div>
-            Movie List
-        </div>
-    )
+interface MovieListProps {
+    title: string;
+    movies: Movies[];
 }
 
-export default MovieList
+const MovieList = (props: MovieListProps) => {
+    const { title, movies } = props;
+
+    return (
+        <div className="movie-list">
+            <div className="movie-title">{title}</div>
+            <div className="movie-list-container">
+                {movies && movies.map((data) => (
+                    <MovieCard key={data.id} movie={data} />
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default MovieList;

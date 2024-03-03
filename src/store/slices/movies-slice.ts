@@ -4,6 +4,7 @@ export interface Movies {
     id: string;
     original_title: string;
     overview: string;
+    poster_path: string;
 }
 
 export interface VideosData {

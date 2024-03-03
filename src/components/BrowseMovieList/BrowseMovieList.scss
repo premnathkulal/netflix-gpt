@@ -1,0 +1,18 @@
+@use '../../scss/colors';
+
+.browse-movie-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 8rem;
+    color: colors.$white;  
+    margin-top: -15rem;  
+    z-index: 2;
+    position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+    .browse-movie-list {
+        padding: 8rem 0.8rem;
+    }
+}

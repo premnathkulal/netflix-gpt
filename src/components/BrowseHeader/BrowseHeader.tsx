@@ -9,7 +9,7 @@ const BrowseHeader = () => {
 
     if (!movies) return
 
-    const latestMovie = movies[0]
+    const latestMovie = movies[1]
     const { original_title, overview, id } = latestMovie
 
     return (

@@ -1,5 +1,5 @@
-import MovieList from "../../components/MovieList/MovieList"
 import BrowseHeader from "../../components/BrowseHeader/BrowseHeader"
+import BrowseMovieList from "../../components/BrowseMovieList/BrowseMovieList"
 import useNowPlayingMovies from "../../hooks/useNowPlayingMovies"
 
 const Browse = () => {
@@ -8,7 +8,7 @@ const Browse = () => {
     return (
         <div className="browse">
             <BrowseHeader />
-            <MovieList />
+            <BrowseMovieList />
         </div>
     )
 }
