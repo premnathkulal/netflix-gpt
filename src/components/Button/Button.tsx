@@ -7,7 +7,7 @@ interface ButtonProps {
     fontSize?: string;
     width?: string;
     textColor?: string;
-    bacgroundColor: string;
+    bacgroundColor?: string;
     clickHandler: () => void;
 }
 
