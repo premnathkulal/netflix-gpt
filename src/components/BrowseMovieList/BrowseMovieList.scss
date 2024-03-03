@@ -7,12 +7,12 @@
     padding: 1rem 8rem;
     color: colors.$white;  
     margin-top: -18rem;  
-    z-index: 2;
     position: relative;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 720px) {
     .browse-movie-list {
         padding: 8rem 0.8rem;
+        margin-top: -10rem;
     }
 }
