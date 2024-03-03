@@ -9,7 +9,7 @@ const userSlice = createSlice({
         photoURL: null,
     },
     reducers: {
-        addUser: (state, action) => {
+        addUser: (_state, action) => {
             return action.payload;
         },
 
