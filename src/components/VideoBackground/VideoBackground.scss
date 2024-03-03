@@ -1,0 +1,12 @@
+@use '../../scss/colors';
+
+.video-background {
+    color: colors.$white;
+    width: 100%;
+
+    .iframe {
+        width: 100%;
+        border: none;
+        aspect-ratio: 16 / 9;
+    }
+}

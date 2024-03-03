@@ -1,0 +1,40 @@
+@use '../../scss/colors';
+
+.video-title {
+    position: absolute;
+    top: 0rem;
+    padding: 20% 8rem;
+    color: colors.$white;
+    width: 40%;
+    height: 100vh;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.8603816526610644) 21%,
+        rgba(0, 0, 0, 0.4374124649859944) 50%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    // &:hover {
+    //     background: none;
+    // }
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    p {
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+    }
+
+    &-btn-grp {
+        width: 100%;
+        display: flex;
+        gap: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .video-title {
+        width: 60%;
+        padding: 8rem 0.8rem;
+    }
+}
