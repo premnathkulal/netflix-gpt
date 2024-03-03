@@ -12,12 +12,16 @@ const MovieList = (props: MovieListProps) => {
 
     return (
         <div className="movie-list">
-            <div className="movie-title">{title}</div>
-            <div className="movie-list-container">
-                {movies && movies.map((data) => (
-                    <MovieCard key={data.id} movie={data} />
-                ))}
-            </div>
+            {movies &&
+                <>
+                    <div className="movie-title">{title}</div>
+                    <div className="movie-list-container">
+                        {movies.map((data) => (
+                            <MovieCard key={data.id} movie={data} />
+                        ))}
+                    </div>
+                </>
+            }
         </div>
     );
 };
