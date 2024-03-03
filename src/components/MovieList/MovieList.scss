@@ -1,0 +1,18 @@
+@use '../../scss/colors';
+
+.movie-list {
+    .movie-title {
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            font-weight: bold;
+        }
+
+    .movie-list-container {
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        scrollbar-width: none;
+        overflow-x: scroll;
+    }
+}
+
